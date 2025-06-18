@@ -33,8 +33,6 @@ def get_leave(
         raise HTTPException(status_code=404, detail="Leave request not found")
     return lr
 
-
-
 # PUBLIC_INTERFACE
 @router.post("/", response_model=schemas.LeaveRequest)
 def create_leave_request(

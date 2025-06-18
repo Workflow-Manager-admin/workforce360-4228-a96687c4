@@ -24,6 +24,7 @@ def list_users(
     """List all users (protected)."""
     return db_.query(models.User).offset(skip).limit(limit).all()
 
+
 @router.post("/", response_model=schemas.User)
 def create_user(
     user: schemas.UserCreate,
