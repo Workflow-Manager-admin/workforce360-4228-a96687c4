@@ -9,6 +9,7 @@ from .routers import (
     leave,
     dashboard,
 )
+from .routers import auth as auth_router
 
 app = FastAPI()
 
@@ -24,6 +25,7 @@ app.add_middleware(
 Base.metadata.create_all(bind=engine)
 
 # Include API routers
+app.include_router(auth_router.router)
 app.include_router(user_role.router)
 app.include_router(task.router)
 app.include_router(timesheet.router)

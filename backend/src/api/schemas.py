@@ -8,9 +8,6 @@ from datetime import datetime, date
 import enum
 
 
-# Enums for task/leave statuses
-
-
 class UserRoleEnum(str, enum.Enum):
     admin = "admin"
     manager = "manager"
@@ -60,6 +57,14 @@ class UserBase(BaseModel):
     role_id: int
 
 
+class UserRegister(BaseModel):
+    username: str
+    full_name: str
+    email: EmailStr
+    password: str
+    role_id: Optional[int] = None
+
+
 class UserCreate(UserBase):
     password: str
 
@@ -70,6 +75,14 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+
+# JWT Token
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
 
 
 # Task
