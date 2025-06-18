@@ -34,6 +34,7 @@ def get_leave(
     return lr
 
 
+
 # PUBLIC_INTERFACE
 @router.post("/", response_model=schemas.LeaveRequest)
 def create_leave_request(
